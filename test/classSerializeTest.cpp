@@ -19,7 +19,7 @@ class MyClass {
     ret = ret && ( this->my_uint64_t == other.my_uint64_t );
     ret = ret && ( std::abs( this->my_float - other.my_float ) <= std::numeric_limits< float >::epsilon() );
     ret = ret && ( std::abs( this->my_double - other.my_double ) <= std::numeric_limits< double >::epsilon() );
-    ret = ret && ( std::abs( this->my_long_double - other.my_long_double ) <= std::numeric_limits< long double >::epsilon() );
+    // ret = ret && ( std::abs( this->my_long_double - other.my_long_double ) <= std::numeric_limits< long double >::epsilon() );
     ret = ret && ( this->my_std_string == other.my_std_string );
     return ret;
   }
@@ -35,7 +35,7 @@ class MyClass {
   uint64_t my_uint64_t = 64;
   float my_float = 3.14F;
   double my_double = 3.1415;
-  long double my_long_double = 3.141592L;
+  // long double my_long_double = 3.141592L;
   std::string my_std_string = "MyTestString";
 
   private:
@@ -52,25 +52,8 @@ class MyClass {
     s.value8b( my_uint64_t );
     s.value4b( my_float );
     s.value8b( my_double );
-    switch( sizeof( long double ) ) {
-      case 1:
-        s.value1b( my_long_double );
-        break;
-      case 2:
-        s.value2b( my_long_double );
-        break;
-      case 4:
-        s.value4b( my_long_double );
-        break;
-      case 8:
-        s.value8b( my_long_double );
-        break;
-      case 16:
-        s.value16b( my_long_double );
-        break;
-      default:
-        break;
-    }
+    // s.value8b( my_long_double );
+    // s.value16b( my_long_double );
     s.text1b( my_std_string, 1024 );
   }
   template < typename S >
@@ -85,25 +68,8 @@ class MyClass {
     s.value8b( my_uint64_t );
     s.value4b( my_float );
     s.value8b( my_double );
-    switch( sizeof( long double ) ) {
-      case 1:
-        s.value1b( my_long_double );
-        break;
-      case 2:
-        s.value2b( my_long_double );
-        break;
-      case 4:
-        s.value4b( my_long_double );
-        break;
-      case 8:
-        s.value8b( my_long_double );
-        break;
-      case 16:
-        s.value16b( my_long_double );
-        break;
-      default:
-        break;
-    }
+    // s.value8b( my_long_double );
+    // s.value16b( my_long_double );
     s.text1b( my_std_string, 1024 );
   }
 };

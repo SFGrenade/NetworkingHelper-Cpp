@@ -4,4 +4,6 @@ This is a library to use nng and bitsery together more easily.
 
 ## Usage
 
-check out `test/classSerializeTest.cpp`
+Check out `test/classSerializeTest.cpp`.
+
+`long double` is not directly supported.

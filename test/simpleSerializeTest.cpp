@@ -97,7 +97,7 @@ TEST( NetworkingHelper, DoubleConversion ) {
 
   sub( NetworkingHelper::NetworkMessage::from< double >( "double", myMessage ) );
 }
-
+/*
 TEST( NetworkingHelper, LongDoubleConversion ) {
   long double myMessage = 3.141592L;
 
@@ -106,7 +106,7 @@ TEST( NetworkingHelper, LongDoubleConversion ) {
 
   sub( NetworkingHelper::NetworkMessage::from< long double >( "long double", myMessage ) );
 }
-
+*/
 TEST( NetworkingHelper, StringConversion ) {
   std::string myMessage = "MyTestString";
 

@@ -1,30 +1,40 @@
 #ifndef NETWORKMESSAGE_HPP_
 #define NETWORKMESSAGE_HPP_
 
+#include <climits>
 #include <cstdlib>
 #include <string>
 
-#define MAKE_DE_SERIALIZE_METHODS_BYTE( type ) \
-  template < typename S >                      \
-  void serialize( S& s, type& o ) {            \
-    s.value< sizeof( type ) >( o );            \
-  }                                            \
-  template < typename S >                      \
-  void deserialize( S& s, type& o ) {          \
-    s.value< sizeof( type ) >( o );            \
+#define MAKE_DE_SERIALIZE_METHODS_BYTE( type, bytes ) \
+  template < typename S >                             \
+  void serialize( S& s, type& o ) {                   \
+    s.value##bytes##b( o );                           \
+  }                                                   \
+  template < typename S >                             \
+  void deserialize( S& s, type& o ) {                 \
+    s.value##bytes##b( o );                           \
   }
 
-MAKE_DE_SERIALIZE_METHODS_BYTE( int8_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( int16_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( int32_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( int64_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( uint8_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( uint16_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( uint32_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( uint64_t );
-MAKE_DE_SERIALIZE_METHODS_BYTE( float );
-MAKE_DE_SERIALIZE_METHODS_BYTE( double );
-MAKE_DE_SERIALIZE_METHODS_BYTE( long double );
+MAKE_DE_SERIALIZE_METHODS_BYTE( int8_t, 1 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( int16_t, 2 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( int32_t, 4 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( int64_t, 8 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( uint8_t, 1 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( uint16_t, 2 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( uint32_t, 4 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( uint64_t, 8 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( float, 4 );
+MAKE_DE_SERIALIZE_METHODS_BYTE( double, 8 );
+// MAKE_DE_SERIALIZE_METHODS_BYTE( long double, 8 );
+
+template < typename S >
+void serialize( S& s, bool& o ) {
+  s.boolValue( o );
+}
+template < typename S >
+void deserialize( S& s, bool& o ) {
+  s.boolValue( o );
+}
 
 template < typename S >
 void serialize( S& s, std::string& o ) {
