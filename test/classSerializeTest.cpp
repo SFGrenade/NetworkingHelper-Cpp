@@ -42,33 +42,69 @@ class MyClass {
   friend class bitsery::Access;
   template < typename S >
   void serialize( S& s ) {
-    s.object( my_int8_t );
-    s.object( my_int16_t );
-    s.object( my_int32_t );
-    s.object( my_int64_t );
-    s.object( my_uint8_t );
-    s.object( my_uint16_t );
-    s.object( my_uint32_t );
-    s.object( my_uint64_t );
-    s.object( my_float );
-    s.object( my_double );
-    s.object( my_long_double );
-    s.object( my_std_string );
+    s.value1b( my_int8_t );
+    s.value2b( my_int16_t );
+    s.value4b( my_int32_t );
+    s.value8b( my_int64_t );
+    s.value1b( my_uint8_t );
+    s.value2b( my_uint16_t );
+    s.value4b( my_uint32_t );
+    s.value8b( my_uint64_t );
+    s.value4b( my_float );
+    s.value8b( my_double );
+    switch( sizeof( long double ) ) {
+      case 1:
+        s.value1b( my_long_double );
+        break;
+      case 2:
+        s.value2b( my_long_double );
+        break;
+      case 4:
+        s.value4b( my_long_double );
+        break;
+      case 8:
+        s.value8b( my_long_double );
+        break;
+      case 16:
+        s.value16b( my_long_double );
+        break;
+      default:
+        break;
+    }
+    s.text1b( my_std_string, 1024 );
   }
   template < typename S >
   void deserialize( S& s ) {
-    s.object( my_int8_t );
-    s.object( my_int16_t );
-    s.object( my_int32_t );
-    s.object( my_int64_t );
-    s.object( my_uint8_t );
-    s.object( my_uint16_t );
-    s.object( my_uint32_t );
-    s.object( my_uint64_t );
-    s.object( my_float );
-    s.object( my_double );
-    s.object( my_long_double );
-    s.object( my_std_string );
+    s.value1b( my_int8_t );
+    s.value2b( my_int16_t );
+    s.value4b( my_int32_t );
+    s.value8b( my_int64_t );
+    s.value1b( my_uint8_t );
+    s.value2b( my_uint16_t );
+    s.value4b( my_uint32_t );
+    s.value8b( my_uint64_t );
+    s.value4b( my_float );
+    s.value8b( my_double );
+    switch( sizeof( long double ) ) {
+      case 1:
+        s.value1b( my_long_double );
+        break;
+      case 2:
+        s.value2b( my_long_double );
+        break;
+      case 4:
+        s.value4b( my_long_double );
+        break;
+      case 8:
+        s.value8b( my_long_double );
+        break;
+      case 16:
+        s.value16b( my_long_double );
+        break;
+      default:
+        break;
+    }
+    s.text1b( my_std_string, 1024 );
   }
 };
 
