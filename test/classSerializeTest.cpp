@@ -9,6 +9,7 @@ class MyClass {
   public:
   bool operator==( MyClass const& other ) const {
     bool ret = true;
+    ret = ret && ( this->my_bool == other.my_bool );
     ret = ret && ( this->my_int8_t == other.my_int8_t );
     ret = ret && ( this->my_int16_t == other.my_int16_t );
     ret = ret && ( this->my_int32_t == other.my_int32_t );
@@ -25,6 +26,7 @@ class MyClass {
   }
 
   private:
+  bool my_bool = true;
   int8_t my_int8_t = 8;
   int16_t my_int16_t = 16;
   int32_t my_int32_t = 32;
@@ -42,6 +44,7 @@ class MyClass {
   friend class bitsery::Access;
   template < typename S >
   void serialize( S& s ) {
+    s.boolValue( my_bool );
     s.value1b( my_int8_t );
     s.value2b( my_int16_t );
     s.value4b( my_int32_t );
@@ -58,6 +61,7 @@ class MyClass {
   }
   template < typename S >
   void deserialize( S& s ) {
+    s.boolValue( my_bool );
     s.value1b( my_int8_t );
     s.value2b( my_int16_t );
     s.value4b( my_int32_t );

@@ -8,6 +8,15 @@
         << #type << " was unable to be converted correctly from: '" << message.getTopic() << "'/'" << message.getContent() << "'";         \
   };
 
+TEST( NetworkingHelper, BoolConversion ) {
+  bool myMessage = true;
+
+  EXPECT_CALLBACK( bool, myCallback );
+  NetworkingHelper::Subscription sub( myCallback );
+
+  sub( NetworkingHelper::NetworkMessage::from< bool >( "bool", myMessage ) );
+}
+
 TEST( NetworkingHelper, Int8Conversion ) {
   int8_t myMessage = 8;
 
