@@ -42,33 +42,33 @@ class MyClass {
   friend class bitsery::Access;
   template < typename S >
   void serialize( S& s ) {
-    s.value< sizeof( int8_t ) >( my_int8_t );
-    s.value< sizeof( int16_t ) >( my_int16_t );
-    s.value< sizeof( int32_t ) >( my_int32_t );
-    s.value< sizeof( int64_t ) >( my_int64_t );
-    s.value< sizeof( uint8_t ) >( my_uint8_t );
-    s.value< sizeof( uint16_t ) >( my_uint16_t );
-    s.value< sizeof( uint32_t ) >( my_uint32_t );
-    s.value< sizeof( uint64_t ) >( my_uint64_t );
-    s.value< sizeof( float ) >( my_float );
-    s.value< sizeof( double ) >( my_double );
-    s.value< sizeof( long double ) >( my_long_double );
-    s.text1b( my_std_string, 1024 );
+    s.object( my_int8_t );
+    s.object( my_int16_t );
+    s.object( my_int32_t );
+    s.object( my_int64_t );
+    s.object( my_uint8_t );
+    s.object( my_uint16_t );
+    s.object( my_uint32_t );
+    s.object( my_uint64_t );
+    s.object( my_float );
+    s.object( my_double );
+    s.object( my_long_double );
+    s.object( my_std_string );
   }
   template < typename S >
   void deserialize( S& s ) {
-    s.value< sizeof( int8_t ) >( my_int8_t );
-    s.value< sizeof( int16_t ) >( my_int16_t );
-    s.value< sizeof( int32_t ) >( my_int32_t );
-    s.value< sizeof( int64_t ) >( my_int64_t );
-    s.value< sizeof( uint8_t ) >( my_uint8_t );
-    s.value< sizeof( uint16_t ) >( my_uint16_t );
-    s.value< sizeof( uint32_t ) >( my_uint32_t );
-    s.value< sizeof( uint64_t ) >( my_uint64_t );
-    s.value< sizeof( float ) >( my_float );
-    s.value< sizeof( double ) >( my_double );
-    s.value< sizeof( long double ) >( my_long_double );
-    s.text1b( my_std_string, 1024 );
+    s.object( my_int8_t );
+    s.object( my_int16_t );
+    s.object( my_int32_t );
+    s.object( my_int64_t );
+    s.object( my_uint8_t );
+    s.object( my_uint16_t );
+    s.object( my_uint32_t );
+    s.object( my_uint64_t );
+    s.object( my_float );
+    s.object( my_double );
+    s.object( my_long_double );
+    s.object( my_std_string );
   }
 };
 
