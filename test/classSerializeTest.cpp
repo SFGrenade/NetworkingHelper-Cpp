@@ -19,7 +19,7 @@ class MyClass {
     ret = ret && ( this->my_uint64_t == other.my_uint64_t );
     ret = ret && ( std::abs( this->my_float - other.my_float ) <= std::numeric_limits< float >::epsilon() );
     ret = ret && ( std::abs( this->my_double - other.my_double ) <= std::numeric_limits< double >::epsilon() );
-    // ret = ret && ( std::abs( this->my_long_double - other.my_long_double ) <= std::numeric_limits< long double >::epsilon() );
+    ret = ret && ( std::abs( this->my_long_double - other.my_long_double ) <= std::numeric_limits< long double >::epsilon() );
     ret = ret && ( this->my_std_string == other.my_std_string );
     return ret;
   }
@@ -35,39 +35,39 @@ class MyClass {
   uint64_t my_uint64_t = 64;
   float my_float = 3.14F;
   double my_double = 3.1415;
-  // long double my_long_double = 3.141592L;
+  long double my_long_double = 3.141592L;
   std::string my_std_string = "MyTestString";
 
   private:
   friend class bitsery::Access;
   template < typename S >
   void serialize( S& s ) {
-    s.value1b( my_int8_t );
-    s.value2b( my_int16_t );
-    s.value4b( my_int32_t );
-    s.value8b( my_int64_t );
-    s.value1b( my_uint8_t );
-    s.value2b( my_uint16_t );
-    s.value4b( my_uint32_t );
-    s.value8b( my_uint64_t );
-    s.value4b( my_float );
-    s.value8b( my_double );
-    // s.value8b( my_long_double );
+    s.value< sizeof( decltype( my_int8_t ) ) >( my_int8_t );
+    s.value< sizeof( decltype( my_int16_t ) ) >( my_int16_t );
+    s.value< sizeof( decltype( my_int32_t ) ) >( my_int32_t );
+    s.value< sizeof( decltype( my_int64_t ) ) >( my_int64_t );
+    s.value< sizeof( decltype( my_uint8_t ) ) >( my_uint8_t );
+    s.value< sizeof( decltype( my_uint16_t ) ) >( my_uint16_t );
+    s.value< sizeof( decltype( my_uint32_t ) ) >( my_uint32_t );
+    s.value< sizeof( decltype( my_uint64_t ) ) >( my_uint64_t );
+    s.value< sizeof( decltype( my_float ) ) >( my_float );
+    s.value< sizeof( decltype( my_double ) ) >( my_double );
+    s.value< sizeof( decltype( my_long_double ) ) >( my_long_double );
     s.text1b( my_std_string, 1024 );
   }
   template < typename S >
   void deserialize( S& s ) {
-    s.value1b( my_int8_t );
-    s.value2b( my_int16_t );
-    s.value4b( my_int32_t );
-    s.value8b( my_int64_t );
-    s.value1b( my_uint8_t );
-    s.value2b( my_uint16_t );
-    s.value4b( my_uint32_t );
-    s.value8b( my_uint64_t );
-    s.value4b( my_float );
-    s.value8b( my_double );
-    // s.value8b( my_long_double );
+    s.value< sizeof( decltype( my_int8_t ) ) >( my_int8_t );
+    s.value< sizeof( decltype( my_int16_t ) ) >( my_int16_t );
+    s.value< sizeof( decltype( my_int32_t ) ) >( my_int32_t );
+    s.value< sizeof( decltype( my_int64_t ) ) >( my_int64_t );
+    s.value< sizeof( decltype( my_uint8_t ) ) >( my_uint8_t );
+    s.value< sizeof( decltype( my_uint16_t ) ) >( my_uint16_t );
+    s.value< sizeof( decltype( my_uint32_t ) ) >( my_uint32_t );
+    s.value< sizeof( decltype( my_uint64_t ) ) >( my_uint64_t );
+    s.value< sizeof( decltype( my_float ) ) >( my_float );
+    s.value< sizeof( decltype( my_double ) ) >( my_double );
+    s.value< sizeof( decltype( my_long_double ) ) >( my_long_double );
     s.text1b( my_std_string, 1024 );
   }
 };
