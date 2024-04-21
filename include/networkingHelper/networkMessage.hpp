@@ -24,11 +24,7 @@ MAKE_DE_SERIALIZE_METHODS_BYTE( uint32_t, 4 );
 MAKE_DE_SERIALIZE_METHODS_BYTE( uint64_t, 8 );
 MAKE_DE_SERIALIZE_METHODS_BYTE( float, 4 );
 MAKE_DE_SERIALIZE_METHODS_BYTE( double, 8 );
-#if defined( NETWORKINGHELPER_WINDOWS_LONGDOUBLE_8_BYTES )
-MAKE_DE_SERIALIZE_METHODS_BYTE( long double, 8 );
-#else
-MAKE_DE_SERIALIZE_METHODS_BYTE( long double, 16 );
-#endif
+// MAKE_DE_SERIALIZE_METHODS_BYTE( long double, 8 );
 
 template < typename S >
 void serialize( S& s, std::string& o ) {

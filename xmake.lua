@@ -40,9 +40,6 @@ target( "NetworkingHelper" )
             add_defines( "NETWORKINGHELPER_DO_EXPORT_WINDOWS" )
         end
     end
-    if is_plat( "windows" ) then
-        add_defines( "NETWORKINGHELPER_WINDOWS_LONGDOUBLE_8_BYTES" )
-    end
 
     add_packages( "bitsery", { public = true } )
     add_packages( "nng", { public = true } )
