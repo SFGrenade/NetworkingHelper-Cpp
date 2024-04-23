@@ -85,8 +85,17 @@ jobs:
         path: ${{ env.XMAKE_GLOBALDIR }}/.xmake/packages
         key: ${{ steps.restore-depcache.outputs.cache-primary-key }}
 
-    - name: Build all targets
-      run: xmake build -vD -a
+    - name: Build libs targets
+      run: xmake build -vD --group=LIBS
+
+    - name: Package libs target NetworkingHelper
+      run: xmake package -vD NetworkingHelper
+
+    - name: Prepare tests
+      run: |
+        mv xmake.lua xmake.lua.orig
+        mv xmake_test.lua xmake.lua
+      shell: bash
 
     - name: Run tests
       run: xmake run -vD --group=TESTS
