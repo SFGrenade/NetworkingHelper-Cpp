@@ -97,6 +97,9 @@ jobs:
         mv xmake_test.lua xmake.lua
       shell: bash
 
+    - name: Build tests
+      run: xmake build -vD --group=TESTS
+
     - name: Run tests
       run: xmake run -vD --group=TESTS
 
