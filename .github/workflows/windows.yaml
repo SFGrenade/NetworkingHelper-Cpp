@@ -98,14 +98,14 @@ jobs:
     - name: Build libs targets
       run: xmake build -vD --group=LIBS
 
-    - name: Package libs target NetworkingHelper
-      run: xmake package -vD NetworkingHelper
+    #- name: Package libs target NetworkingHelper
+    #  run: xmake package -vD NetworkingHelper
 
-    - name: Prepare tests
-      run: |
-        mv xmake.lua xmake.lua.orig
-        mv xmake_test.lua xmake.lua
-      shell: bash
+    #- name: Prepare tests
+    #  run: |
+    #    mv xmake.lua xmake.lua.orig
+    #    mv xmake_test.lua xmake.lua
+    #  shell: bash
 
     - name: Build tests
       run: xmake build -vD --group=TESTS

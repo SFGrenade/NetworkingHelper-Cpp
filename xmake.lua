@@ -18,7 +18,7 @@ else
     set_languages( "c++17" )
 end
 
-add_requireconfs( "*", { configs = { shared = get_config( "kind" ) == "shared" } } )
+add_requireconfs( "*", { debug = get_config( "mode" ) == "debug", configs = { shared = get_config( "kind" ) == "shared" } } )
 
 add_requires( "bitsery" )
 add_requires( "nng" )
