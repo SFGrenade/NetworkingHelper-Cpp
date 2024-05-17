@@ -6,7 +6,7 @@
 
 namespace NetworkingHelper {
 
-class NETWORKINGHELPER_EXPORT Bus : public NngWrap {
+class NETWORKINGHELPER_API Bus : public NngWrap {
   public:
   Bus( std::string const& host, bool isServer );
   ~Bus() override;

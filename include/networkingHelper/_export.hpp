@@ -1,17 +1,15 @@
-#if defined( NETWORKINGHELPER_DO_EXPORT_LINUX )
+#include <hedley/hedley.h>
 
-#define NETWORKINGHELPER_EXPORT __attribute__( ( dllexport ) ) __attribute__( ( visibility( "default" ) ) )
+#if defined( NETWORKINGHELPER_IS_SHARED ) && defined( NETWORKINGHELPER_COMPILING )
 
-#elif defined( NETWORKINGHELPER_DO_EXPORT_MACOSX )
+#define NETWORKINGHELPER_API HEDLEY_PUBLIC
 
-#define NETWORKINGHELPER_EXPORT __attribute__( ( visibility( "default" ) ) )
+#elif defined( NETWORKINGHELPER_IS_SHARED )
 
-#elif defined( NETWORKINGHELPER_DO_EXPORT_WINDOWS )
-
-#define NETWORKINGHELPER_EXPORT __declspec( dllexport )
+#define NETWORKINGHELPER_API HEDLEY_IMPORT
 
 #else
 
-#define NETWORKINGHELPER_EXPORT
+#define NETWORKINGHELPER_API
 
 #endif

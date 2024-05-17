@@ -6,7 +6,7 @@
 
 namespace NetworkingHelper {
 
-class NETWORKINGHELPER_EXPORT ReqRep : public NngWrap {
+class NETWORKINGHELPER_API ReqRep : public NngWrap {
   public:
   enum class Status { Receiving, Sending };
 

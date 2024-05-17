@@ -8,7 +8,7 @@
 
 namespace NetworkingHelper {
 
-class NETWORKINGHELPER_EXPORT Subscription {
+class NETWORKINGHELPER_API Subscription {
   public:
   Subscription();
   Subscription( NetworkingHelper::Subscription const& other );

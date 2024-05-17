@@ -8,7 +8,7 @@
 
 namespace NetworkingHelper {
 
-class NETWORKINGHELPER_EXPORT SurvResp : public NngWrap {
+class NETWORKINGHELPER_API SurvResp : public NngWrap {
   public:
   SurvResp( std::string const& host, bool isServer );
   ~SurvResp() override;
