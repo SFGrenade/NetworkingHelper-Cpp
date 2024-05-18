@@ -6,7 +6,7 @@
 
 namespace NetworkingHelper {
 
-class NETWORKINGHELPER_API PushPull : public NngWrap {
+class NETWORKINGHELPER_API_CLASSES PushPull : public NngWrap {
   public:
   PushPull( std::string const& host, bool isPusher );
   ~PushPull() override;

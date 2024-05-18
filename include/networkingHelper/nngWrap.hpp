@@ -9,7 +9,7 @@
 
 namespace NetworkingHelper {
 
-class NETWORKINGHELPER_API NngWrap {
+class NETWORKINGHELPER_API_CLASSES NngWrap {
   public:
   enum class SocketType {
     Bus0,

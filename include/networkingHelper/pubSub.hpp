@@ -6,7 +6,7 @@
 
 namespace NetworkingHelper {
 
-class NETWORKINGHELPER_API PubSub : public NngWrap {
+class NETWORKINGHELPER_API_CLASSES PubSub : public NngWrap {
   public:
   PubSub( std::string const& host, bool isPublisher );
   ~PubSub() override;

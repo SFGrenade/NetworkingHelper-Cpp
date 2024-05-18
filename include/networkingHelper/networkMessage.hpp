@@ -64,7 +64,7 @@ using BitseryBuffer = std::vector< uint8_t >;
 using OutputAdapter = bitsery::OutputBufferAdapter< BitseryBuffer >;
 using InputAdapter = bitsery::InputBufferAdapter< BitseryBuffer >;
 
-class NETWORKINGHELPER_API NetworkMessage {
+class NETWORKINGHELPER_API_CLASSES NetworkMessage {
   public:
   NetworkMessage();
   NetworkMessage( NetworkingHelper::NetworkMessage const& other );
